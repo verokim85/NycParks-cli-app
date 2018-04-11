@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "./lib/NycParks"
+
+require "bundler/setup"
+require "NycParks"
+
+NycParks::CLI.new.call

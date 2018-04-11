@@ -1,8 +1,6 @@
 # NycParks
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/NycParks`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+With this gem you will be able to obtain a list of parks in each borough.  In addition, you will be able to obtain further information about each park such as the name, address, borough and park information.
 
 ## Installation
 

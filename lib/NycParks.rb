@@ -1,5 +1,7 @@
-require "NycParks/version"
+require "open-uri"
+require "nokogiri"
+require "pry"
 
-module NycParks
-  # Your code goes here...
-end
+require_relative "./nycParks/version"
+require_relative "./nycParks/borough"
+require_relative "./nycParks/cli"
