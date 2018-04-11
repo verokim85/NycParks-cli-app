@@ -20,9 +20,16 @@ class NycParks::CLI
     while input != "exit"
         puts "Enter the borough for a list of parks or type exit to exit:"
         input = gets.strip.downcase
-      if input == @borough
-        the_boroughs =  @borough
-        puts "#{the_boroughs.name}"
+      if input == "Queens"
+        puts
+      elsif input == "Brooklyn"
+        puts
+      elsif input == "Bronx"
+        puts
+      elsif input == "Manhattan"
+        puts
+      elsif input == "Staten Island"
+        put
       else
         puts "Please enter a valid borough or type exit to exit."
       end

@@ -2,23 +2,26 @@ class NycParks::Parks
 
   attr_accessor :name, :address, :borough, :park_info
 
-  def self.parks
-    park_1 = self.new
-    park_1 = "Queens"
-    park_1 = "123-223"
-    park_1 = "Queens"
-    park_1 = "Queens"
+  def self.park
+    self.scrape_parks
+  end
 
+  def self.scrape_parks
+    parks = []
+    parks << self.scrape_nycparks
+    parks
+  end
 
-    park_2 = self.new
-    park_2 = "Brooklyn"
-    park_2 = "123-223"
-    park_2 = "Brooklyn"
-    park_2 = "Brooklyn"
+  def self.scrape_nycparks
+    binding.pry
+      doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list?"))
+    park = self.new
+    park.name =
+    park.address =
+    park.borough =
+    park.park_info =
 
-    [park_1, park_2]
-
-    # self.scrape_parks
+    park
   end
 
 
