@@ -18,17 +18,17 @@ class NycParks::CLI
   def parks
     input = nil
     while input != "exit"
-        puts "Enter the borough for a list of parks or type exit to exit:"
+        puts "Enter a borough for a list of parks or type exit to exit:"
         input = gets.strip.downcase
-      if input == "Queens"
+      if input == "queens"
         puts
-      elsif input == "Brooklyn"
+      elsif input == "brooklyn"
         puts
-      elsif input == "Bronx"
+      elsif input == "bronx"
         puts
-      elsif input == "Manhattan"
+      elsif input == "manhattan"
         puts
-      elsif input == "Staten Island"
+      elsif input == "staten island"
         put
       else
         puts "Please enter a valid borough or type exit to exit."

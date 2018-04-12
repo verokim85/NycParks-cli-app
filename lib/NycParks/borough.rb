@@ -14,8 +14,14 @@ class NycParks::Borough
 
   def self.scrape_nycboroughs
     doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
+    borough_name = doc.css("#li_id>.nav-tabs a").each {|boro| puts boro.text}
+    end
+  end
 
-    borough_name = doc.css("#li_id>.nav-tabs a").each {|x| puts x.text}
+  def self.scrape_park_names
+    doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
+    park_names = doc.css("#boro-park-highlights a").each {|list_park| puts list_park.text}
+    end
   end
 
 end

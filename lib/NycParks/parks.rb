@@ -13,7 +13,7 @@ class NycParks::Parks
   end
 
   def self.scrape_nycparks
-    binding.pry
+
       doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list?"))
     park = self.new
     park.name =
