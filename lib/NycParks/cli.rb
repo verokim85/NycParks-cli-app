@@ -18,7 +18,7 @@ class NycParks::CLI
   end
 
   def list_borough_parks
-    @borough_parks = NycParks::Borough.borough_parks
+    @borough_parks = NycParks::Borough.scrape_borough_parks
     @borough_parks.each do |borough_parks|
   end
 
