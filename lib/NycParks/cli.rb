@@ -11,7 +11,7 @@ class NycParks::CLI
 
   def list_boroughs
     puts "NYC Boroughs:"
-    @borough = NycParks::Borough.boroughs
+    @borough = NycParks::Borough.scrape_boroughs
     @borough.each do |borough|
     puts "#{borough}"
     end
@@ -48,8 +48,8 @@ class NycParks::CLI
       elsif input =="staten island"
         list_borough_parks
         list_parks
-      # else
-      #   puts "Please enter a valid borough or type exit to exit."
+      else
+        puts "Please enter a valid borough or type exit to exit."
         end
       end
     end

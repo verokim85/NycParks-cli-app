@@ -1,16 +1,15 @@
 class NycParks::Borough
 
-  def self.boroughs
-    boroughs = []
-    boroughs << self.scrape_boroughs
-    boroughs
-  end
+  # def self.boroughs
+  #   boroughs = []
+  #   boroughs << self.scrape_boroughs
+  #   boroughs
+  # end
 
   def self.scrape_boroughs
     doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
-    borough_name = doc.css("#li_id>.nav-tabs a").each do |boro| puts boro.text
+    borough_name = doc.css("#li_id>.nav-tabs a").collect do |boro| boro.text
     end
-    borough_name
   end
 
 
