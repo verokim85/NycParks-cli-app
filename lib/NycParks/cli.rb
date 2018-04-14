@@ -37,12 +37,11 @@ class NycParks::CLI
       input != "exit"
         puts "Enter a borough for a list of parks or type exit to exit:"
         input = gets.strip.downcase
+      if ["bronx", "manhattan", "queens", "brooklyn", "staten island"].include?(input)
         hash = NycParks::Borough.scrape_borough_parks
-      hash[input.to_sym].each {|x| puts x}
-
+        hash[input.split[0].to_sym].each {|x| puts x}
       else
         puts "Please enter a valid borough or type exit to exit."
-
       end
 
 
