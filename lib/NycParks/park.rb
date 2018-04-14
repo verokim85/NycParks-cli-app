@@ -1,6 +1,6 @@
-class NycParks::Park
-
-  attr_accessor :name, :address, :borough, :park_info
+# class NycParks::Park
+#
+#   attr_accessor :name, :address, :borough, :park_info
 
   # def self.single_parks
   #   parks = []
@@ -8,38 +8,48 @@ class NycParks::Park
   #   parks
   # end
   #
-
-
-  def self.scrape_single_parks
-    @hash = {}
-
-    doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
-    scrape_borough_parks.each do |list_park|
-      @park["#{boro.text}".split.join.to_sym] = "https://www.nycgovparks.org/parks/" + list_park.attribute("href").text
-
-
-    name = doc.css(".park_name_title").text
-    address = doc.css(".park_location").text
-    borough = doc.css("#park_info span").text
-    park_info = doc.css("#park_description p+ p").text
-    end
-  end
-  @park
-end
-
-
-  def self.scrape_single_parks
-    doc = Nokogiri::HTML(open("https://www.nycgovparks.org/parks/adam-yauch-park/?"))
-
-    name = doc.css(".park_name_title").text
-    address = doc.css(".park_location").text
-    borough = doc.css("#park_info span").text
-    park_info = doc.css("#park_description p+ p").text
-
-  end
+  # def self.scrape_parks
+  #   binding.pry
+  #   NycParks::Borough.scrape_borough_parks
+  #   # park_name = doc.css("#li_id>.nav-tabs a").collect do |boro| boro.text
+  #
+  #   end
+  #
 
 
 
+#
+#   def self.scrape_single_parks
+#
+#     @hash = {}
+#
+#     doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
+#     scrape_borough_parks.each do |list_park|
+#       @park["#{list_park.text}".split.join.to_sym] = "https://www.nycgovparks.org/parks/" + list_park.attribute("href").text
+# # binding.pry
+#
+#     name = doc.css(".park_name_title").text
+#     address = doc.css(".park_location").text
+#     borough = doc.css("#park_info span").text
+#     park_info = doc.css("#park_description p+ p").text
+#     end
+#   end
+#   @park
+# end
+#
+#
+#   def self.scrape_single_parks
+#     doc = Nokogiri::HTML(open("https://www.nycgovparks.org/parks/adam-yauch-park/?"))
+#
+  #   name = doc.css(".park_name_title").text
+  #   address = doc.css(".park_location").text
+  #   borough = doc.css("#park_info span").text
+  #   park_info = doc.css("#park_description p+ p").text
+  #
+  # end
+
+#
+#
 
 #
 # doc.css("#boro-park-highlights a").each do |list_park|

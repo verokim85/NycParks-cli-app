@@ -2,6 +2,7 @@ class NycParks::CLI
 
   def call
     list_boroughs
+    # boro
     # list_borough_parks
     # list_parks
     parks
@@ -17,7 +18,10 @@ class NycParks::CLI
     end
   end
 
-  #
+  # def boro
+  #   NycParks::Borough.b
+  # end
+
   # def list_borough_parks
   #   @borough_parks = NycParks::Borough.scrape_borough_parks
   #   @borough_parks.each do |borough_parks|
@@ -26,15 +30,15 @@ class NycParks::CLI
   # end
 
 
-
-  def list_parks
-    @list_parks = NycParks::Park.scrape_single_parks
-  end
+  #
+  # def list_parks
+  #   @list_parks = NycParks::Park.scrape_single_parks
+  # end
 
 
   def parks
     input = nil
-      input != "exit"
+    while input != "exit"
         puts "Enter a borough for a list of parks or type exit to exit:"
         input = gets.strip.downcase
       if ["bronx", "manhattan", "queens", "brooklyn", "staten island"].include?(input)
@@ -44,15 +48,17 @@ class NycParks::CLI
         puts "Please enter a valid borough or type exit to exit."
       end
 
+    puts "Enter the park name exactly as listed or more info or type exit to exit."
+      input = gets.strip
+      
 
-    while input != "exit"
-        puts "Enter the name of a park for more info or type exit to exit."
-        input = gets.strip.downcase
-        list_parks
-      end
+    #     input = gets.strip.downcase
+    #     list_parks
     end
   end
+  # end
 
   def goodbye
     puts "Thanks for stopping by!"
   end
+end
