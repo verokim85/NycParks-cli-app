@@ -2,11 +2,11 @@ class NycParks::CLI
 
   def call
     list_boroughs
-    list_borough_parks
-    list_parks
+    # list_borough_parks
+    # list_parks
     parks
     goodbye
-    # individual_parks
+
   end
 
   def list_boroughs
@@ -17,40 +17,39 @@ class NycParks::CLI
     end
   end
 
-  def list_borough_parks
-    @borough_parks = NycParks::Borough.scrape_borough_parks
-    @borough_parks.each do |borough_parks|
-  end
+  #
+  # def list_borough_parks
+  #   @borough_parks = NycParks::Borough.scrape_borough_parks
+  #   @borough_parks.each do |borough_parks|
+  #     borough parks
+  #   end
+  # end
+
+
 
   def list_parks
-    puts "Please enter the name of a park for more info or exit to exit."
-    @list_parks = NycParks::Park.single_parks
+    @list_parks = NycParks::Park.scrape_single_parks
   end
 
 
   def parks
     input = nil
-    while input != "exit"
+      input != "exit"
         puts "Enter a borough for a list of parks or type exit to exit:"
         input = gets.strip.downcase
-      if input == "bronx"
-        list_borough_parks
-        list_parks
-      elsif input =="brooklyn"
-        list_borough_parks
-        list_parks
-      elsif input =="manhattan"
-        list_borough_parks
-        list_parks
-      elsif input =="queens"
-        list_borough_parks
-        list_parks
-      elsif input =="staten island"
-        list_borough_parks
-        list_parks
+        hash = NycParks::Borough.scrape_borough_parks
+      hash[input.to_sym].each {|x| puts x}
+
       else
         puts "Please enter a valid borough or type exit to exit."
-        end
+
+      end
+
+
+    while input != "exit"
+        puts "Enter the name of a park for more info or type exit to exit."
+        input = gets.strip.downcase
+        list_parks
       end
     end
   end
@@ -58,8 +57,3 @@ class NycParks::CLI
   def goodbye
     puts "Thanks for stopping by!"
   end
-
-
-
-
-end

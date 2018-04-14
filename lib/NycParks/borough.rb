@@ -16,13 +16,14 @@ class NycParks::Borough
   end
 
   def self.scrape_borough_parks
-    arr = self.scrape_borough_url.values
-    arr.each do |url|
+    boroparks_hash = {}
+
+    NycParks::Borough.scrape_borough_url.values.each do |url|
       doc = Nokogiri::HTML(open(url))
-      doc.css("#boro-park-highlights a").each do |list_park|
-        puts list_park.text
+      name = doc.css("#navlist_header").text
+      boroparks_hash["#{name}".split[0].downcase.to_sym] = doc.css("#boro-park-highlights a").collect {|park| park.text}
       end
+      boroparks_hash
     end
-  end
 
 end
