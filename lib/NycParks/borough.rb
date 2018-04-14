@@ -40,18 +40,32 @@ class NycParks::Borough
   def self.all_boro_parks
     park_url = {}
 
-    temp = self.scrape_borough_url
-    temp.values.each do |url|
+    boro_url = self.scrape_borough_url
+    boro_url.values.each do |url|
       doc = Nokogiri::HTML(open(url))
       doc.css("#boro-park-highlights a").collect {|x| park_url[x.text.to_sym] = "https://www.nycgovparks.org" + x.attribute("href").text}
     end
     park_url
   end
 
-  # def self.park_scrape(input)
-  #   doc = Nokogiri::HTML(open("https://www.nycgovparks.org/parks/joyce-kilmer-park/"))
-  #
-  # end
+  def self.park_scrape
+    parks = {}
+
+    temp = self.all_boro_parks.values
+    temp.each do |url|
+      doc = Nokogiri::HTML(open(url))
+
+      parks[doc.css(".park_name_title").text.to_sym] = {
+          :name => doc.css(".park_name_title").text,
+          :address => doc.css(".park_location").text,
+          :borough => doc.css("#park_info span").text,
+          :TEST => doc.css('div#park_description p').text
+      }
+      end
+      
+    end
+
+
 
 
 

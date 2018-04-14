@@ -2,7 +2,7 @@ class NycParks::CLI
 
   def call
     list_boroughs
-    # boro
+    boro
     # list_borough_parks
     # list_parks
     parks
@@ -18,9 +18,9 @@ class NycParks::CLI
     end
   end
 
-  # def boro
-  #   NycParks::Borough.b
-  # end
+  def boro
+    NycParks::Borough.park_scrape
+  end
 
   # def list_borough_parks
   #   @borough_parks = NycParks::Borough.scrape_borough_parks
@@ -50,7 +50,7 @@ class NycParks::CLI
 
     puts "Enter the park name exactly as listed or more info or type exit to exit."
       input = gets.strip
-      
+
 
     #     input = gets.strip.downcase
     #     list_parks
