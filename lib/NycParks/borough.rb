@@ -59,10 +59,10 @@ class NycParks::Borough
           :name => doc.css(".park_name_title").text,
           :address => doc.css(".park_location").text,
           :borough => doc.css("#park_info span").text,
-          :TEST => doc.css('div#park_description p').text
+          :park_info => doc.css('div#park_description p').text
       }
       end
-      
+
     end
 
 
