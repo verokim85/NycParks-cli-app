@@ -26,16 +26,6 @@ class NycParks::Borough
       end
       boroparks_hash
     end
-  # def self.scrape_borough_parks
-  #   boroparks_hash = {}
-  #
-  #   NycParks::Borough.scrape_borough_url.values.each do |url|
-  #     doc = Nokogiri::HTML(open(url))
-  #     name = doc.css("#navlist_header").text
-  #     boroparks_hash["#{name}".split[0].downcase.to_sym] = {}
-  #     end
-  #     boroparks_hash
-  #   end
 
   def self.all_boro_parks
     park_url = {}
@@ -49,24 +39,18 @@ class NycParks::Borough
   end
 
   def self.park_scrape
-    parks = {}
 
-    temp = self.all_boro_parks.values
-    temp.each do |url|
-      doc = Nokogiri::HTML(open(url))
+      temp = self.all_boro_parks.values
+      temp.collect do |url|
+        doc = Nokogiri::HTML(open(url))
 
-      parks[doc.css(".park_name_title").text.to_sym] = {
-          :name => doc.css(".park_name_title").text,
-          :address => doc.css(".park_location").text,
-          :borough => doc.css("#park_info span").text,
-          :park_info => doc.css('div#park_description p').text
-      }
+        {
+            :name => doc.css(".park_name_title").text,
+            :address => doc.css(".park_location").text,
+            :borough => doc.css("#park_info span").text,
+            :park_info => doc.css('div#park_description p').text
+        }
+        end
       end
-
-    end
-
-
-
-
 
 end

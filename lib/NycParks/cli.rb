@@ -1,6 +1,7 @@
 class NycParks::CLI
 
   def call
+    make_parks
     greetings
     list_boroughs
     until boro_valid? == true
@@ -10,9 +11,13 @@ class NycParks::CLI
     until park_valid? == true
       list_borough_parks
     end
-    NycParks::Park.new
     list_a_park
     again
+  end
+
+  def make_parks
+    parks_array = NycParks::Borough.park_scrape
+    NycParks::Park.create_from_collection(parks_array)
   end
 
   def greetings
@@ -56,12 +61,11 @@ class NycParks::CLI
   end
 
   def list_a_park
-    NycParks::Park.all
     park = NycParks::Park.all.detect {|park_obj| park_obj.name == @input_park}
-      puts park.name
-      puts park.address
-      puts park.borough
-      puts park.park_info
+    puts park.name
+    puts park.address
+    puts park.borough
+    puts park.park_info
   end
 
   def goodbye

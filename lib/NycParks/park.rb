@@ -4,19 +4,23 @@ class NycParks::Park
 
   @@all = []
 
-  def initialize
-    @name = "Astoria Park"
-    @address = "test_address"
-    @borough = "test_borough"
-    @park_info = "test_park_info"
+  def initialize(park_hash)
+
+    park_hash.each do |attribute, value|
+      self.send("#{attribute}=", value)
+    end
     @@all << self
+  end
+
+  def self.create_from_collection(parks_array)
+    parks_array.each do |park_hash|
+      NycParks::Park.new(park_hash)
+    end
   end
 
   def self.all
     @@all
   end
-
-
 
 
 
