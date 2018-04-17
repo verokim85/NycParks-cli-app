@@ -5,13 +5,13 @@ require "NycParks/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "NycParks"
-  spec.version       = NycParks::VERSION
+  spec.version       = "0.0.1"
   spec.authors       = ["Veronica"]
   spec.email         = ["vero.a.kim@gmail.com"]
 
-  spec.summary       = %q{NYC Parks}
-  spec.description   = %q{NYC Parks}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Obtain info about a park in NYC}
+  spec.description   = %q{Can obtain info about the park's name, address, borough and short description}
+  spec.homepage      = "https://github.com/verokim85/NycParks-cli-app"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

@@ -1,6 +1,10 @@
 # NycParks
 
-With this gem you will be able to obtain a list of parks in each borough.  In addition, you will be able to obtain further information about each park such as the name, address, borough and park information.
+With this gem, you can access a parks name, address, borough and info by:
+1) Entering a borough in NYC.  
+   (This will return a list of parks)
+2) Choose and enter the name of a specific park that you want more info on.
+   (This will return the above info.)  
 
 ## Installation
 
@@ -20,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem can be used to access and find info about specific parks located in NYC.
 
 ## Development
 

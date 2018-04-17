@@ -31,6 +31,9 @@ class NycParks::CLI
     end
     puts "Enter a borough for a list of parks or type exit to exit:"
     @input = gets.strip.downcase
+    if @input == "exit"
+      goodbye
+    end
   end
 
   def boro_valid?
@@ -49,6 +52,9 @@ class NycParks::CLI
     end
     puts "Enter the park name exactly as listed for more info or type exit to exit."
     @input_park = gets.strip
+    if @input_park == "exit"
+      goodbye
+    end
   end
 
   def park_valid?
@@ -70,6 +76,7 @@ class NycParks::CLI
 
   def goodbye
     puts "Thanks for stopping by!"
+    exit
   end
 
   def again
