@@ -16,7 +16,7 @@ class NycParks::CLI
   end
 
   def make_parks
-    parks_array = NycParks::Borough.park_scrape
+    parks_array = NycParks::Scraper.park_scrape
     NycParks::Park.create_from_collection(parks_array)
   end
 
@@ -25,7 +25,7 @@ class NycParks::CLI
   end
 
   def list_boroughs
-    @borough = NycParks::Borough.scrape_boroughs
+    @borough = NycParks::Scraper.scrape_boroughs
     @borough.each do |borough|
     puts "#{borough}"
     end
@@ -46,7 +46,7 @@ class NycParks::CLI
   end
 
   def list_borough_parks
-    hash = NycParks::Borough.scrape_borough_parks
+    hash = NycParks::Scraper.scrape_borough_parks
     hash[@input.split[0].to_sym].each do |parks|
     puts parks
     end
@@ -58,7 +58,7 @@ class NycParks::CLI
   end
 
   def park_valid?
-    hash = NycParks::Borough.scrape_borough_parks
+    hash = NycParks::Scraper.scrape_borough_parks
     if hash[@input.split[0].to_sym].include?(@input_park)
       return true
     else

@@ -14,7 +14,7 @@ class NycParks::Park
 
   def self.create_from_collection(parks_array)
     parks_array.each do |park_hash|
-    NycParks::Park.new(park_hash)
+    self.new(park_hash)
     end
   end
 
