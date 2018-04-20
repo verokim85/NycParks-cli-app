@@ -8,7 +8,9 @@ class NycParks::Scraper
 
   def self.scrape_borough_url
     hash = {}
-    doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
+    doc =
+
+    Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
     doc.css("#li_id>.nav-tabs a").each do |boro|
       hash["#{boro.text}".split.join.to_sym] = "https://www.nycgovparks.org/park-features/parks-list" + boro.attribute("href").text
     end
