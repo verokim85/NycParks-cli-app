@@ -5,7 +5,7 @@ require "NycParks/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "NycParks"
-  spec.version       = "0.0.1"
+  spec.version       = NycParks::VERSION
   spec.authors       = ["Veronica"]
   spec.email         = ["vero.a.kim@gmail.com"]
 

@@ -4,19 +4,17 @@ class NycParks::Scraper
     doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
     borough_name = doc.css("#li_id>.nav-tabs a").collect do |boro| boro.text
     end
+    borough_name
   end
 
   def self.scrape_borough_url
     hash = {}
-    doc =
-
-    Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
+    doc = Nokogiri::HTML(open("https://www.nycgovparks.org/park-features/parks-list"))
     doc.css("#li_id>.nav-tabs a").each do |boro|
       hash["#{boro.text}".split.join.to_sym] = "https://www.nycgovparks.org/park-features/parks-list" + boro.attribute("href").text
     end
       hash
   end
-
 
   def self.scrape_borough_parks
     boroparks_hash = {}
@@ -42,8 +40,8 @@ class NycParks::Scraper
 
   def self.park_scrape
 
-      temp = self.all_boro_parks.values
-      temp.collect do |url|
+      arr_park_url = self.all_boro_parks.values
+      arr_park_url.collect do |url|
         doc = Nokogiri::HTML(open(url))
 
         {

@@ -27,7 +27,7 @@ class NycParks::CLI
   def list_boroughs
     @borough = NycParks::Scraper.scrape_boroughs
     @borough.each do |borough|
-    puts "#{borough}"
+      puts "#{borough}"
     end
     puts "Enter a borough for a list of parks or type exit to exit:"
     @input = gets.strip.downcase
